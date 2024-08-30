@@ -4,16 +4,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:play_list_omar_ahmed/core/theme/styles.dart';
 import 'package:play_list_omar_ahmed/core/widgets/app_text_button.dart';
 import 'package:play_list_omar_ahmed/features/login/ui/widgets/email_and_password.dart';
-import 'package:play_list_omar_ahmed/features/login/ui/widgets/login_bloc_listener.dart';
-import 'package:play_list_omar_ahmed/features/login/data/models/login_request_body.dart';
-import 'package:play_list_omar_ahmed/features/login/ui/widgets/do_not_have_account_text.dart';
-import 'package:play_list_omar_ahmed/features/login/ui/widgets/terms_and_conditions.dart';
+import 'package:play_list_omar_ahmed/features/sign_up/logic/sign_up_cubit.dart';
+import 'package:play_list_omar_ahmed/features/sign_up/ui/widgets/already_have_account_text.dart';
+import 'package:play_list_omar_ahmed/features/sign_up/ui/widgets/sign_up_bloc_listener.dart';
+import 'package:play_list_omar_ahmed/features/sign_up/ui/widgets/sign_up_form.dart';
+import 'package:play_list_omar_ahmed/features/sign_up/ui/widgets/terms_and_conditions.dart';
 
 import '../../../core/helper/spacing.dart';
-import '../logic/login_cubit.dart';
+import '../data/models/sign_up_request_body.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({super.key});
 
 
   @override
@@ -30,29 +31,21 @@ class LoginScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Welcome Back',
+                'Create Account',
                 style: TextStyles.font24BlueBold,
               ),
               verticalSpace(8.h),
               Text(
-                'We\'re excited to have you back, can\'t wait to see what you\'ve been up to since you last logged in.',
+                'Sign up now and start exploring all that our app has to offer. We\'re excited to welcome you to our community!',
                 style: TextStyles.font14GrayRegular,
               ),
               verticalSpace(36.h),
               Column(
                 children: [
-                const EmailAndPassword(),
-                  verticalSpace(24.h),
-                  Align(
-                    alignment: AlignmentDirectional.centerEnd,
-                    child: Text(
-                      'Forget Password?',
-                      style: TextStyles.font13BlueRegular,
-                    ),
-                  ),
+                const SignupForm(),
                   verticalSpace(24.h),
                   AppTextButton(
-                    buttonText: 'Login',
+                    buttonText: 'Create Account',
                     textStyle: TextStyles.font16WhiteSemiBold,
                     onPressed: () {
                       validateThenDoLogin(context);
@@ -61,8 +54,8 @@ class LoginScreen extends StatelessWidget {
                   verticalSpace(16.h),
                   const TermsAndConditionsText(),
                   verticalSpace(60.h),
-                  const DonotHaveAccount(),
-                  const LoginBlocListener(),
+                  const AlreadyHaveAccountText(),
+                  const SignupBlocListener(),
                 ],
               ),
             ],
@@ -73,16 +66,8 @@ class LoginScreen extends StatelessWidget {
   }
 
   void validateThenDoLogin(BuildContext context) {
-    if(context.read<LoginCubit>().formKey.currentState!.validate()){
-      context.read<LoginCubit>().emitStateLogin();
+    if(context.read<SignUpCubit>().formKey.currentState!.validate()){
+      context.read<SignUpCubit>().emitStateSignUp();
     }
-    // if(context.read<LoginCubit>().formKey.currentState!.validate()){
-    //   context.read<LoginCubit>().emitStateLogin(
-    //     LoginRequestBody(
-    //         email: context.read<LoginCubit>().emailController.text,
-    //         password: context.read<LoginCubit>().passwordController.text,
-    //     ),
-    //   );
-    // }
   }
 }

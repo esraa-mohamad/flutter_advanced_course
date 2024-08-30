@@ -5,6 +5,8 @@ import 'package:play_list_omar_ahmed/features/home/ui/home_screen.dart';
 import 'package:play_list_omar_ahmed/features/login/logic/login_cubit.dart';
 import 'package:play_list_omar_ahmed/features/login/ui/login_screen.dart';
 import 'package:play_list_omar_ahmed/features/onboarding/onboarding_screen.dart';
+import 'package:play_list_omar_ahmed/features/sign_up/logic/sign_up_cubit.dart';
+import 'package:play_list_omar_ahmed/features/sign_up/ui/sign_up_screen.dart';
 
 import '../di/dependency_injection.dart';
 
@@ -31,6 +33,14 @@ class AppRouter {
       case Routes.homeScreen :
         return MaterialPageRoute(
           builder: (_) => const HomeScreen(),
+        );
+      case Routes.signUpScreen :
+        return MaterialPageRoute(
+          builder: (_) =>
+              BlocProvider(
+                create: (context) => getIt<SignUpCubit>(),
+                child: const SignUpScreen(),
+              ),
         );
       default :
         return MaterialPageRoute(

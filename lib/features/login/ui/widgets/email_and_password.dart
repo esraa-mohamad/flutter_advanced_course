@@ -5,8 +5,8 @@ import 'package:play_list_omar_ahmed/core/helper/app_regex.dart';
 import 'package:play_list_omar_ahmed/core/widgets/password_validation.dart';
 import 'package:play_list_omar_ahmed/features/login/logic/login_cubit.dart';
 
-import '../helper/spacing.dart';
-import 'app_text_form_field.dart';
+import '../../../../core/helper/spacing.dart';
+import '../../../../core/widgets/app_text_form_field.dart';
 
 class EmailAndPassword extends StatefulWidget {
   const EmailAndPassword({super.key});
