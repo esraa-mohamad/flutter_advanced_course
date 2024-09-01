@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:play_list_omar_ahmed/core/theme/styles.dart';
 import 'package:play_list_omar_ahmed/core/widgets/app_text_button.dart';
-import 'package:play_list_omar_ahmed/features/login/ui/widgets/email_and_password.dart';
 import 'package:play_list_omar_ahmed/features/sign_up/logic/sign_up_cubit.dart';
 import 'package:play_list_omar_ahmed/features/sign_up/ui/widgets/already_have_account_text.dart';
 import 'package:play_list_omar_ahmed/features/sign_up/ui/widgets/sign_up_bloc_listener.dart';
@@ -11,7 +10,6 @@ import 'package:play_list_omar_ahmed/features/sign_up/ui/widgets/sign_up_form.da
 import 'package:play_list_omar_ahmed/features/sign_up/ui/widgets/terms_and_conditions.dart';
 
 import '../../../core/helper/spacing.dart';
-import '../data/models/sign_up_request_body.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
