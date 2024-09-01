@@ -63,6 +63,7 @@ dependencies:
   build_runner: ^2.4.11
   #  More Icon
   font_awesome_flutter: ^10.7.0
+  firebase_core: ^2.24.2
 
 
 

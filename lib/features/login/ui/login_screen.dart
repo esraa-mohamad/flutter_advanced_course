@@ -5,7 +5,6 @@ import 'package:play_list_omar_ahmed/core/theme/styles.dart';
 import 'package:play_list_omar_ahmed/core/widgets/app_text_button.dart';
 import 'package:play_list_omar_ahmed/features/login/ui/widgets/email_and_password.dart';
 import 'package:play_list_omar_ahmed/features/login/ui/widgets/login_bloc_listener.dart';
-import 'package:play_list_omar_ahmed/features/login/data/models/login_request_body.dart';
 import 'package:play_list_omar_ahmed/features/login/ui/widgets/do_not_have_account_text.dart';
 import 'package:play_list_omar_ahmed/features/login/ui/widgets/terms_and_conditions.dart';
 

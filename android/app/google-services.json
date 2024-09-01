@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "234940025637",
+    "project_id": "flutter-app-distribution-2187c",
+    "storage_bucket": "flutter-app-distribution-2187c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:234940025637:android:d1ec3ac270da408e6868cc",
+        "android_client_info": {
+          "package_name": "com.example.play_list_omar_ahmed"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXWZvRPkKGcVTNXKW1-UAm7zOD40V51T4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
