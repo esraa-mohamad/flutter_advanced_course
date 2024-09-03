@@ -3,7 +3,7 @@ name: Android Fastlane with Firebase App Distribution Workflow
 on:
   push:
     branches:
-      - master # The branch that you would like to run the workflow when you push into it.
+      - main # The branch that you would like to run the workflow when you push into it.
 
 jobs:
   distribution_to_firebase:
