@@ -30,16 +30,16 @@ jobs:
           bundler-cache: true # Disable bundler-cache to manage dependencies manually
           working-directory: android 
 
-      # - name: Update Gemfile.lock platforms
-      #   run: |
-      #     cd android
-      #     bundle lock --add-platform x86_64-linux
-      #     bundle lock --add-platform ruby
+      - name: Update Gemfile.lock platforms
+        run: |
+          cd android
+          bundle lock --add-platform x86_64-linux
+          bundle lock --add-platform ruby
 
-      # - name: Install Ruby Dependencies
-      #   run: |
-      #     cd android
-      #     bundle install
+      - name: Install Ruby Dependencies
+        run: |
+          cd android
+          bundle install
 
       - name: Flutter Build Android App And Upload To Firebase
         env:
