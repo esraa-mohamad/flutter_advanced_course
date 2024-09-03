@@ -27,7 +27,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.3.4'
-          bundler-cache: true # Disable bundler-cache to manage dependencies manually
+          bundler-cache: false # Disable bundler-cache to manage dependencies manually
           working-directory: android 
 
       - name: Update Gemfile.lock platforms
