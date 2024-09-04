@@ -24,11 +24,7 @@ class PasswordValidation extends StatelessWidget {
         verticalSpace(2.h),
         buildValidationRow('At least 1 number', hasNumbers),
         verticalSpace(2.h),
-        buildValidationRow('At least 1 lowercase letter', hasMinimumLength),
-        verticalSpace(2.h),
-        buildValidationRow('At least 8 characters long', hasLowerCase),
-        verticalSpace(2.h),
-
+        buildValidationRow('At least 8 characters long', hasMinimumLength),
       ],
     );
   }
