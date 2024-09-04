@@ -35,7 +35,7 @@ class DoctorsBlueContainer extends StatelessWidget {
                   style: TextStyles.font18WhiteMedium,
                   textAlign: TextAlign.start,
                 ),
-                verticalSpace(15),
+                verticalSpace(5.h),
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () {},
