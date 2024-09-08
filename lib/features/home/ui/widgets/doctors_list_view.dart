@@ -2,55 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:play_list_omar_ahmed/core/helper/spacing.dart';
 import 'package:play_list_omar_ahmed/core/theme/styles.dart';
+import 'package:play_list_omar_ahmed/features/home/data/model/specialization_response_model.dart';
+import 'package:play_list_omar_ahmed/features/home/ui/widgets/doctors_item.dart';
 
 class DoctorsListView extends StatelessWidget {
-  const DoctorsListView({super.key});
+  const DoctorsListView({super.key,required this.doctorsList});
 
+  final List<Doctors?>? doctorsList ;
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
-        itemCount: 6,
+        itemCount: doctorsList?.length,
         itemBuilder: (context , index){
-          return Container(
-            margin: EdgeInsets.only(
-              bottom: 16.h
-            ),
-            child: Row(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: Image.asset('assets/images/doctor_home.png',
-                  width: 110.w,
-                  height: 120.h,
-                  fit: BoxFit.cover,
-                  ),
-                ),
-                horizontalSpace(16.w), 
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Dr. Randy Wigham',
-                        style: TextStyles.font16DarkBlueBold, 
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      verticalSpace(5.h),
-                      Text(
-                        'General | 01012467440',
-                        style: TextStyles.font12GrayMedium, 
-                      ),
-                      verticalSpace(5.h),
-                      Text(
-                        'doctor@gmail.com',
-                        style: TextStyles.font12GrayMedium, 
-                      ),
-                    ],
-                  ),
-                  ),
-              ],
-            ),
+          return DoctorsItem(
+              doctors: doctorsList![index]
           );
         }
         ),
