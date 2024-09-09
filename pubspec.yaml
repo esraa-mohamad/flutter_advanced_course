@@ -64,7 +64,12 @@ dependencies:
   #  More Icon
   font_awesome_flutter: ^10.7.0
   firebase_core: ^2.24.2
+  # make cached  network  image
   cached_network_image: ^3.4.1
+  # Flutter plugin for reading and writing simple key-value pairs.
+  shared_preferences: ^2.3.2
+  # Flutter Secure Storage provides API to store data in secure storage
+  flutter_secure_storage: ^9.2.2
 
 
 

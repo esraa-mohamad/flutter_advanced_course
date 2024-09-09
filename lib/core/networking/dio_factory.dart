@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:play_list_omar_ahmed/core/helper/constants.dart';
+import 'package:play_list_omar_ahmed/core/helper/shared_preferences_helper.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 
@@ -28,16 +30,16 @@ class DioFactory {
     dio?.options.headers = {
       'Accept': 'application/json',
        'Authorization':
-       'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3ZjYXJlLmludGVncmF0aW9uMjUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzI1ODE0NDgyLCJleHAiOjE3MjU5MDA4ODIsIm5iZiI6MTcyNTgxNDQ4MiwianRpIjoiMkxuMVdWdm5EenZmRkJHUCIsInN1YiI6IjI4MCIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.10oPQQ1qN7DIhI-Z8B75DZ7lkyqu4vXiRpmHilB5e7Y'
-      // 'Bearer ${await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken)}',
+       'Bearer ${await SharedPreferencesHelper.getSecuredString(SharedPrefKey.userToke)}'
     };
   }
 
-  // static void setTokenIntoHeaderAfterLogin(String token) {
-  //   dio?.options.headers = {
-  //     'Authorization': 'Bearer $token',
-  //   };
-  // }
+
+   static void setTokenIntoHeaderAfterLogin(String token) {
+     dio?.options.headers = {
+      'Authorization': 'Bearer $token',
+    };
+  }
 
   static void addDioInterceptor() {
     dio?.interceptors.add(
