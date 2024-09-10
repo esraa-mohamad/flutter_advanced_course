@@ -2,12 +2,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/helper/spacing.dart';
-import '../../../../core/theme/styles.dart';
-import '../../data/model/specialization_response_model.dart';
+import '../../../../../core/helper/spacing.dart';
+import '../../../../../core/theme/styles.dart';
+import '../../../data/model/specialization_response_model.dart';
 
-class DoctorsItem extends StatelessWidget {
-  const DoctorsItem({super.key, required this.doctors});
+class DoctorsListViewItem extends StatelessWidget {
+  const DoctorsListViewItem({super.key, required this.doctors});
 
   final Doctors? doctors;
 
@@ -42,14 +42,6 @@ class DoctorsItem extends StatelessWidget {
                   ),
                 ),
           ),
-          // ClipRRect(
-          //   borderRadius: BorderRadius.circular(12),
-          //   child: Image.asset('assets/images/doctor_home.png',
-          //     width: 110.w,
-          //     height: 120.h,
-          //     fit: BoxFit.cover,
-          //   ),
-          // ),
           horizontalSpace(16.w),
           Expanded(
             child: Column(
