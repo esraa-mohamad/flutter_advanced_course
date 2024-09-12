@@ -17,7 +17,7 @@ class LoginCubit extends Cubit<LoginState> {
   TextEditingController passwordController = TextEditingController();
 
   void emitStateLogin() async{
-    emit(const LoginState.loading());
+    emit(const LoginState.loginLoading());
     final response = await loginRepo.login(
       LoginRequestBody(
           email: emailController.text,
@@ -28,10 +28,10 @@ class LoginCubit extends Cubit<LoginState> {
     response.when(
         success: (loginResponse) async{
           await saveUserToken(loginResponse.userData?.token  ?? '');
-          emit(LoginState.success(loginResponse));
+          emit(LoginState.loginSuccess(loginResponse));
         },
-        failure: (error){
-          emit(LoginState.error(error: error.apiErrorModel.message ?? ''));
+        failure: (apiErrorModel){
+          emit(LoginState.loginError(apiErrorModel));
         }
     );
   }

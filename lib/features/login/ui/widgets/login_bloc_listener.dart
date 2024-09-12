@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:play_list_omar_ahmed/core/helper/extensions.dart';
+import 'package:play_list_omar_ahmed/core/networking/api_error_model.dart';
 import 'package:play_list_omar_ahmed/core/routing/routes.dart';
 import 'package:play_list_omar_ahmed/core/theme/colors.dart';
 import 'package:play_list_omar_ahmed/core/theme/styles.dart';
@@ -14,10 +15,10 @@ class LoginBlocListener extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<LoginCubit, LoginState>(
       listenWhen: (previous, current) =>
-          current is Loading || current is Success || current is Error,
+          current is LoginLoading || current is LoginSuccess || current is LoginError,
       listener: (context, state) {
         state.whenOrNull(
-          loading: (){
+          loginLoading: (){
             showDialog(
                 context: context,
                 builder: (context)=> const CircularProgressIndicator(
@@ -25,13 +26,13 @@ class LoginBlocListener extends StatelessWidget {
                 )
             );
           },
-          success: (loginResponse){
+          loginSuccess: (loginResponse){
             context.pop();
             context.pushNamed(Routes.homeScreen,);
           },
-          error: (error){
+          loginError: (apiErrorModel){
             context.pop();
-            setUpErrorState(context, error);
+            setUpErrorState(context, apiErrorModel);
           }
         );
       },
@@ -39,7 +40,7 @@ class LoginBlocListener extends StatelessWidget {
     );
   }
 
-  void setUpErrorState(BuildContext context, String error) {
+  void setUpErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
     showDialog(
         context: context,
         builder: (context)=> AlertDialog(
@@ -49,7 +50,7 @@ class LoginBlocListener extends StatelessWidget {
             color: Colors.red,
           ),
           content:Text(
-            error ,
+            apiErrorModel.getAllStringMessages() ,
             style: TextStyles.font15DarkBlueMedium,
           ) ,
           actions: [

@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:play_list_omar_ahmed/core/networking/api_error_handler.dart';
+import 'package:play_list_omar_ahmed/core/networking/api_error_model.dart';
 import 'package:play_list_omar_ahmed/features/home/data/model/specialization_response_model.dart';
 
 part 'home_state.freezed.dart';
@@ -10,11 +10,11 @@ class HomeState with _$HomeState{
   // Specialization state
   factory HomeState.specializationLoading()= SpecializationLoading;
   factory HomeState.specializationSuccess(List<SpecializationDate?> ? specializationData)= SpecializationSuccess;
-  factory HomeState.specializationError(ErrorHandler errorHandler)= SpecializationError;
+  factory HomeState.specializationError(ApiErrorModel apiErrorModel)= SpecializationError;
 
   // Doctors stet
   factory HomeState.doctorsSuccess(List<Doctors?>? doctorsList) = DoctorsSuccess ;
-  factory HomeState.doctorsError(ErrorHandler errorHandler) = DoctorsError;
+  factory HomeState.doctorsError(ApiErrorModel apiErrorModel) = DoctorsError;
 }
 
 
